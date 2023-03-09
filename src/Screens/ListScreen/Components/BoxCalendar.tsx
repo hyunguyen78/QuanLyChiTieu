@@ -56,6 +56,7 @@ const styles = StyleSheet.create({
     height: scale(140),
     borderRadius: scale(20),
     padding: scale(15),
+    marginTop: scale(15),
   },
   topAction: {
     flexDirection: 'row',

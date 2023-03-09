@@ -1,4 +1,5 @@
 import {
+  Animated,
   Dimensions,
   Image,
   StatusBar,
@@ -14,11 +15,13 @@ import {fontScale, scale} from 'react-native-utils-scale';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {TYPE} from '@/Themes/Fonts';
 const {width: W} = Dimensions.get('window');
-type Props = {};
+type Props = {
+  valueHeader: any;
+};
 
-const Header = (props: Props) => {
+const Header: React.FC<Props> = ({valueHeader}) => {
   return (
-    <View>
+    <Animated.View>
       <StatusBar
         translucent={true}
         backgroundColor={'transparent'}
@@ -26,7 +29,7 @@ const Header = (props: Props) => {
       />
       <LinearGradient
         colors={[COLORS.PRIMARY, COLORS.PINK_CHALK]}
-        style={styles.container}
+        style={{...styles.container}}
       />
       <View
         style={{
@@ -66,11 +69,11 @@ const Header = (props: Props) => {
           </Text>
         </View>
       </View>
-    </View>
+    </Animated.View>
   );
 };
 
-export default React.memo(Header);
+export default Header;
 
 const styles = StyleSheet.create({
   container: {
